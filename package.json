@@ -1,0 +1,36 @@
+{
+  "name": "reader-extension",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build:next": "next build",
+    "build:scripts": "node scripts/build-extension.js",
+    "build:extension": "npm run build:next && npm run build:scripts",
+    "build": "npm run build:extension",
+    "lint": "eslint app extension scripts",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf out .next"
+  },
+  "dependencies": {
+    "@mozilla/readability": "^0.6.0",
+    "lucide-react": "^0.344.0",
+    "next": "14.2.35",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.268",
+    "@types/node": "^20.14.10",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.19",
+    "esbuild": "^0.20.2",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.35",
+    "postcss": "^8.4.38",
+    "rimraf": "^5.0.5",
+    "tailwindcss": "^3.4.3",
+    "typescript": "~5.5.4"
+  }
+}

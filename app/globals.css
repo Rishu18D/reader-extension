@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --background: #090d18;
+  --foreground: #f1f5f9;
+}
+
+html {
+  min-width: 320px;
+  background: var(--background);
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #818cf8;
+  outline-offset: 3px;
+}
+
+.focusflow-margin-guides::before,
+.focusflow-margin-guides::after {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgb(103 232 249 / 22%);
+  content: "";
+  pointer-events: none;
+}
+
+.focusflow-margin-guides::before {
+  left: 7%;
+}
+
+.focusflow-margin-guides::after {
+  right: 7%;
+}
+
+.focusflow-pacer-word {
+  position: relative;
+  white-space: normal;
+}
+
+.focusflow-pacer-word::after {
+  position: absolute;
+  right: 0;
+  bottom: -2px;
+  left: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, #67e8f9, transparent);
+  content: "";
+  transform: scaleX(0.25);
+  transform-origin: left center;
+  animation: focusflow-pacer-sweep var(--focusflow-pacer-duration, 1s) ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes focusflow-pacer-sweep {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
